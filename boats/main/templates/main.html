@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Table Viewer</title>
+    <script>
+        function fetchData() {
+            const selectedFunc = document.getElementById("function-select").value;
+            fetch(`/get-data/?func=${selectedFunc}`)
+                .then(response => response.json())
+                .then(data => {
+                    const tableContainer = document.getElementById("result-frame");
+                    tableContainer.innerHTML = "";
+
+                    if (data.columns && data.rows) {
+                        const table = document.createElement("table");
+                        table.border = "1";
+
+                        const header = table.insertRow();
+                        data.columns.forEach(col => {
+                            const th = document.createElement("th");
+                            th.innerText = col;
+                            header.appendChild(th);
+                        });
+
+                        data.rows.forEach(row => {
+                            const tr = table.insertRow();
+                            row.forEach(cell => {
+                                const td = tr.insertCell();
+                                td.innerText = cell;
+                            });
+                        });
+
+                        tableContainer.appendChild(table);
+                    }
+                });
+        }
+    </script>
+</head>
+<body>
+    <div id="header-frame">
+        <label for="function-select">Choose function:</label>
+        <select id="function-select">
+            {% for func in functions %}
+                <option value="{{ func }}">{{ func }}</option>
+            {% endfor %}
+        </select>
+        <button onclick="fetchData()">Get Data</button>
+    </div>
+    <hr>
+    <div id="result-frame"></div>
+</body>
+</html>
