@@ -2,17 +2,17 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 from .apps.goolets_net import GooletsNet
+from .apps.m_blueyachts_com import MBlueyachtsCom
 
-def GooletsNet_get_data():
-    # return {"columns": ["Name", "Age"], "rows": [["Alice", 30], ["Bob", 25]]}
+def goolets_net_get_data():
     return GooletsNet.get_data()
 
-def dummy_func_2():
-    return {"columns": ["Product", "Price"], "rows": [["Book", 10], ["Pen", 2]]}
+def m_blueyachts_com_get_data():
+    return MBlueyachtsCom.get_data()
 
 FUNCTION_MAP = {
-    "goolets.net": GooletsNet_get_data,
-    "func2": dummy_func_2,
+    "goolets.net": goolets_net_get_data,
+    "m-blueyachts.com": m_blueyachts_com_get_data,
 }
 
 def index(request):
