@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 class MBlueyachtsCom:
 
-    url = 'https://m-blueyachts.com/luxury-yacht-charter/page/9'
+    url = 'https://m-blueyachts.com/luxury-yacht-charter/page/0'
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36"
     }
