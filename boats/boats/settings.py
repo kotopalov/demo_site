@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+323_pq=crh4mvl3e(_-thb%5d=&gek)h_gq2=t*4_0-$^8p-w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [boats-site.onrender.com]
 
 
 # Application definition
